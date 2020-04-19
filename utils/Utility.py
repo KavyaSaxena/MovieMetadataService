@@ -80,3 +80,41 @@ class Utility:
       omdb_json = Utility.search_omdb_data(meta_json['imdbId'], OMDb_url, api_key)
     data = Utility.combine_json(meta_json, omdb_json)
     return data
+
+  @staticmethod
+  def search_field(search_field, search_value, merged_data):
+    """
+    Search fields in merged data
+    :param search_field: fields list to be searched
+    :param search_value: values of the corresponding fields
+    :param merged_data: merged data present from task 1
+    :return: Return are the movies fulfilling the searched criteria
+    """
+    list(search_field)
+    list(search_value)
+    json_files = Utility.files_in_folder(merged_data)
+    result = []
+    if search_field == []:
+      for file in json_files:
+        json_file = merged_data + "/" + file
+        with open(json_file, 'rb') as file:  # will close() when we leave this block
+          data = json.load(file)
+        result.append(data)
+    else:
+      for file in json_files:
+        json_file = merged_data + "/" + file
+        with open(json_file, 'rb') as file:  # will close() when we leave this block
+          data = json.load(file)
+        if all(key in data for key in set(search_field)):
+          checkValue = 0
+          for i in range(len(search_field)):
+            if type(data[search_field[i]]) is list and search_value[i] in data[search_field[i]]:
+              pass
+            elif str(data[search_field[i]]) == str(search_value[i]):
+              pass
+            else:
+              checkValue = 1
+              break
+          if checkValue == 0:
+            result.append(data)
+    return result
