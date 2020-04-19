@@ -1,17 +1,3 @@
-# Movie Metadata Search
-
-## Preface
-
-Hello,
-
-this is part of your interview with Convosight that aims to test your ability to write services that efficiently solve problems.
-
-Please read this document carefully before starting, as it outlines your task, the constraints and by what criteria you will be evaluated.
-
-Use git to document your work. When finished, please create a pull request on the `master` branch, according to the following naming convention: `<your name>-solution`
-
-We will look at the git history of your pull request to determine the way you approached this and the time you roughly spent on the task.  **Do not squash commits or bundle many unrelated changes into one large commit.**
-
 ## The service
 
 You are tasked to implement a RESTful API that provides the following two basic functionalities to retrieve movie metadata from a content catalogue.
@@ -55,25 +41,4 @@ We want to be able to search movies in our catalogue. To that end, we implement 
 
 - Use Python (minimum 3.5),java or nodejs
 - Do not introduce any system dependencies (databases, caches, search engines, docker, ..) to solve this task. This task is about your problem solving skills and not about creating a production ready system. It should not require more than installing the dependency (for e.g: `pip install`) and  running the application (for e.g: `python <your_script>.py`) to have a running service.
-- 72h after being added to the project, your pushing rights will be revoked and the latest commit of your implementation will be the basis for your evaluation.
-- Keep it simple: You are not expected to spend days on this - just proof that you know how to write great software
 
-## Evaluation criteria
-
-In general you can think of the evaluation being a thorough peer review of your code. 
-You will be evaluated by a number of criteria, among others:
-
-- How well did you apply engineering best practices (general & language specific)?
-- Is the service working as intended?
-- How readable is your code?
-- Does the service solve the problem
-    - correctly?
-    - efficiently?
-- Is your code consistent in itself (styling, language constructs, ..)?
-- Appropriate use 3rd party modules
-- We do **not** expect you to have a high test coverage, **BUT** it is important that you demonstrate that you know how to write testable code and provide a few tests that showcase this.
-- Proper use of git
-- Making good assumptions and documenting them
-
-
-### Good luck
