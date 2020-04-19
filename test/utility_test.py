@@ -5,7 +5,7 @@ from config.settings import api_key, OMDb_url, merged_data
 class UtilityTest(unittest.TestCase):
 
   def test_files_in_folder_1(self):
-    actual = Utility.files_in_folder("./movie-metadata-service/movies")
+    actual = Utility.files_in_folder("./movie-metadata-services/movies")
     expected = ['11528860.json', '3532674.json', '5979300.json', '11043689.json']
     self.assertEqual(expected, actual)
 
@@ -13,15 +13,15 @@ class UtilityTest(unittest.TestCase):
     self.assertRaises(FileNotFoundError,Utility.files_in_folder, "testtt" )
 
   def test_search_json_files_1(self):
-    data, actual = Utility.search_json_file(11043689,"./movie-metadata-service/movies")
+    data, actual = Utility.search_json_file(11043689,"./movie-metadata-services/movies")
     self.assertFalse(actual)
 
   def test_search_json_files_2(self):
-    data, actual = Utility.search_json_file("tt0076759","./movie-metadata-service/movies")
+    data, actual = Utility.search_json_file("tt0076759","./movie-metadata-services/movies")
     self.assertTrue(actual)
 
   def test_search_json_files_3(self):
-    data, actual = Utility.search_json_file("1104368","./movie-metadata-service/movies")
+    data, actual = Utility.search_json_file("1104368","./movie-metadata-services/movies")
     self.assertIsNone(data)
 
   def test_search_omdb_data_1(self):
@@ -33,15 +33,15 @@ class UtilityTest(unittest.TestCase):
     self.assertEqual("tt0076759", data['imdbID'])
 
   def test_getting_moving_data_1(self):
-    data = Utility.getting_moving_data(11043689, "./movie-metadata-service/movies", OMDb_url, api_key)
+    data = Utility.getting_moving_data(11043689, "./movie-metadata-services/movies", OMDb_url, api_key)
     self.assertEqual(11043689,data['id'])
 
   def test_getting_moving_data_2(self):
-    data = Utility.getting_moving_data("tt0076759", "./movie-metadata-service/movies", OMDb_url, api_key)
+    data = Utility.getting_moving_data("tt0076759", "./movie-metadata-services/movies", OMDb_url, api_key)
     self.assertEqual("tt0076759", data['imdbID'])
 
   def test_getting_moving_data_3(self):
-    data = Utility.getting_moving_data(1104368, "./movie-metadata-service/movies", OMDb_url, api_key)
+    data = Utility.getting_moving_data(1104368, "./movie-metadata-services/movies", OMDb_url, api_key)
     self.assertEqual("Incorrect IMDb ID.", data['Error'])
 
   def test_search_field_1(self):
